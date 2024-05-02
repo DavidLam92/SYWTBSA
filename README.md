@@ -21,6 +21,8 @@ The SYWTBSA project aimed to establish a controlled environment for simulating a
 ## Steps
 
 
+### Part 1: Setting up 2 small VMs
+
 1. The first task was to download and install a free 30-day trial version of VMware rkstation.
    This part was self explanatory. Trial should end May 30th. Countdown begins.
 
@@ -41,3 +43,34 @@ The SYWTBSA project aimed to establish a controlled environment for simulating a
 
    VM IP: 192.168.232.128/24
 
+4. Disable Defender on Windows VM
+   I find it neat to learn that in Win11 Defender will turn itself back on, so several settings need to be turned off as well as GPO and Registry need to be edited.
+
+5. Prevent the VM from goign on standby by changing some power configs.
+
+6. Install Sysmon in Windows VM
+   Sysmon is short for System Monitor which is a great tool for analysts to get granular telemetry on Windows endpoint. Sysmon logs system activity to the event log such as process creations, network connections, file changes, etc. Think WireShark but for your System.
+
+7. Install LimaCharlie EDR on Windows VM
+   LC is a "SecOps Cloud Platform" that comes with cross-platform EDR agent. It also handles log shipping/ingestion and has a threat detection engine. SecOps, or Security Operations, is a collaborative approach to cyber security between IT Security and IT Operations to ensure all processes can perform and operate safely and securely. EDR, or Endpoint Detection & Response is a client-side ( hence, endpoint) security solution that monitors enpoints to detect and respond to cyber threats like randsomware and malware. Log shipping refers to the process of automating the backup of transaction log files form a primary database server to a secondary standby server.
+   LC will start shipping Sysmon logs.
+
+8. At this time, we will take a snapshot of the VMs as the baseline in case we need to scrap the project and start fresh.
+
+9. We will now setup the attack system. We'll be using SSH on the host to connect to the Ubuntu VM which will make future CLI activities easier with copy/paste "magic"
+   ssh user@192.168.232.128
+
+10. Drop into root sheel using "sudo su" command and run command given from lab to download Sliver, a Command & Control (C2) framework. C2 is the infrastructure used by and attacker that contains a collection of tools and methods used to communicate with the compromised devices.
+
+11. MAke a future working directory according to the lab.
+
+12. Explore LC web interface to learn more about what it can do.
+   Go to "Sensors List" and click on the hostname of the sensor we installed today and explorer these options to start with.
+   - Timeline
+   - Processes
+        - Real-time list of process activity
+   - Network
+        - Real-time list of active network conenctions and listening ports
+   - File System
+        - Browse the entire system!
+   
