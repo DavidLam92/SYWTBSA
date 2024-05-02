@@ -79,4 +79,8 @@ The SYWTBSA project aimed to establish a controlled environment for simulating a
             Here, we can navigate through the different Drives, in this case it start at the C-drive. We can see the file name, path, along with other detials regarding the file including inspectign the hash and downloading the file. One use is we can grab the file and port it to a sandbox for malware analysis ont he backend.
    - Autoruns
         - We can detect anomolies that is set to autorun on the system here.
-   
+
+
+
+![image](https://github.com/DavidLam92/SYWTBSA/assets/168468338/0889b2e1-cea7-436a-aff6-727c8f8ed67d)
+
