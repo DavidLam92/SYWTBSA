@@ -67,10 +67,16 @@ The SYWTBSA project aimed to establish a controlled environment for simulating a
 12. Explore LC web interface to learn more about what it can do.
    Go to "Sensors List" and click on the hostname of the sensor we installed today and explorer these options to start with.
    - Timeline
+            It's odd that the time and date seems to be incorrect: today's date is 5/1/2024 but the date here is 5/2/2024.
+            Ahh, it makes sense now, the time is not based off of the Windows VM but ratehr ont he Ubuntu Server VM and Ubuntu uses UTC
    - Processes
         - Real-time list of process activity
    - Network
         - Real-time list of active network conenctions and listening ports
+            So, this is like your netstat if you're familiar with netstat.
    - File System
         - Browse the entire system!
+            Here, we can navigate through the different Drives, in this case it start at the C-drive. We can see the file name, path, along with other detials regarding the file including inspectign the hash and downloading the file. One use is we can grab the file and port it to a sandbox for malware analysis ont he backend.
+   - Autoruns
+        - We can detect anomolies that is set to autorun on the system here.
    
